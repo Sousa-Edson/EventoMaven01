@@ -8,8 +8,8 @@ import com.home.eventomaven01.model.Local;
 public class TesteLocal {
     public static void main(String[] args) {
         Local l = new Local();
-        l.setPredio("Alphaville 2");
-        l.setSala("J440");
+        l.setPredio("Barueri");
+        l.setSala("B1010");
         l.setCapacidade(500);
 //        l.setId(1L);
         
