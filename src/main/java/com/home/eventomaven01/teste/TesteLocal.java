@@ -6,7 +6,7 @@ import com.home.eventomaven01.model.Local;
 
  
 public class TesteLocal {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         Local l = new Local();
         l.setPredio("Barueri");
         l.setSala("B1010");
