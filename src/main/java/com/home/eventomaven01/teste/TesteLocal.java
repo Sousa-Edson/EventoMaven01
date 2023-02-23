@@ -8,10 +8,10 @@ import com.home.eventomaven01.model.Local;
 public class TesteLocal {
     public static void main(String[] args) {
         Local l = new Local();
-        l.setPredio("Alphaville");
+        l.setPredio("Alphaville 2");
         l.setSala("J440");
         l.setCapacidade(500);
-        l.setId(1L);
+//        l.setId(1L);
         
         LocalDAO dao = new LocalDAO();
         l=dao.Salvar(l);
