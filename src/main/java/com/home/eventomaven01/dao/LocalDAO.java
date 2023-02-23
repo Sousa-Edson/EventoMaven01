@@ -12,17 +12,47 @@ public class LocalDAO {
         return factory.createEntityManager();
     }
 
-    public Local Salvar(Local local) {
+    public Local Salvar(Local local) throws Exception {
         EntityManager em = getEM();
         try {
             em.getTransaction().begin();
-            em.persist(local); //inserir
+            if (local.getId() == null) {
+                em.persist(local); // executa inserir
+            } else {
+                if (!em.contains(local)) {
+                    if (em.find(Local.class, local.getId()) == null) {
+                        throw new Exception("Erro ao atualizar!!");
+                    }
+                }
+                local = em.merge(local); // executa update
+            }
             em.getTransaction().commit();
-        } catch (Exception e) {
-            em.getTransaction().rollback();
         } finally {
             em.close();
         }
         return local;
+    }
+
+    public void remover(Long id) {
+        EntityManager em = getEM();
+        Local local = em.find(Local.class, id);
+        try {
+            em.getTransaction().begin();
+            em.remove(local);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+    public Local consultaPorId(Long id) {
+        EntityManager em = getEM();
+        Local l = null;
+        try {
+            l = em.find(Local.class, id);
+        } finally {
+            em.close();
+        }
+        return l;
     }
 }
