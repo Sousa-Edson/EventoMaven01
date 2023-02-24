@@ -15,7 +15,7 @@ public class PalestranteTeste {
         pa2.setNome("Joao Roberto");
         pa2.setMiniBio("dentista");
 
-//
+
         PalestranteDAO dao = new PalestranteDAO();
         dao.salvar(pa);
         dao.salvar(pa2);

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +32,7 @@ public class Palestra {
     @OneToOne   // tirando a operação em caacata
     private Local local; 
     
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "Palestra_Palestrante",
             joinColumns = @JoinColumn(name = "palestra_id"),
             inverseJoinColumns = @JoinColumn(name = "palestrante_id"))
