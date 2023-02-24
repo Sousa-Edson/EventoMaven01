@@ -37,7 +37,7 @@ public class EventoTeste {
 //            System.out.println("Palestrante " + palestrante.getNome());
 //        }
 //Consulta todos
-        List<Evento> eventos = dao.consultarTodos();
+        List<Evento> eventos = dao.consultarProximos();
         for (Evento e : eventos) {
             System.out.println(e.getNome() + " " + df.format(e.getInicio()) + " " + df.format(e.getFim()));
         }

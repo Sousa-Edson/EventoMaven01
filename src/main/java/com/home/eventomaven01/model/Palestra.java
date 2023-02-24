@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -19,6 +21,11 @@ import javax.persistence.TemporalType;
 
 @Entity
 @SequenceGenerator(name = "palestra_seq", sequenceName = "palestra_seq", allocationSize = 1, initialValue = 1)
+@NamedQueries({
+        @NamedQuery(name = "Palestra.consultaPorEvento",
+                query = "SELECT p FROM PAlestra p WHERE p.evento.id = :eventoId")
+        
+})
 public class Palestra {
 
     @Id

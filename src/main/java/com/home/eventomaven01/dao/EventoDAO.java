@@ -65,4 +65,17 @@ public class EventoDAO {
         }
         return eventos;
     }
+     public List<Evento> consultarProximos() {
+        EntityManager em = getEM();
+        List<Evento> eventos;
+        try {
+            Query q = em.createNamedQuery("Evento.consultaProximos");
+            eventos = q.getResultList();  
+        } catch (Exception e) {
+            eventos = new ArrayList();
+        } finally {
+            em.close();
+        }
+        return eventos;
+    }
 }

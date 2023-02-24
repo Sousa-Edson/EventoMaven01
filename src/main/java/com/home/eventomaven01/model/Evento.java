@@ -16,10 +16,12 @@ import javax.persistence.TemporalType;
 
 @Entity
 @SequenceGenerator(name = "evento_seq", sequenceName = "evento_seq", allocationSize = 1, initialValue = 1)
-@NamedQueries(
+@NamedQueries({
         @NamedQuery(name = "Evento.consultaTodos",
-                query = "SELECT e FROM Evento e")
-)
+                query = "SELECT e FROM Evento e"),
+        @NamedQuery(name = "Evento.consultaProximos",
+                query = "SELECT e FROM Evento e WHERE e.fim >= CURRENT_DATE")
+})
 
 public class Evento {
 
