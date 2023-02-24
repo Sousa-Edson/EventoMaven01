@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -14,6 +16,11 @@ import javax.persistence.TemporalType;
 
 @Entity
 @SequenceGenerator(name = "evento_seq", sequenceName = "evento_seq", allocationSize = 1, initialValue = 1)
+@NamedQueries(
+        @NamedQuery(name = "Evento.consultaTodos",
+                query = "SELECT e FROM Evento e")
+)
+
 public class Evento {
 
     @Id

@@ -13,22 +13,20 @@ public class EventoTeste {
     public static void main(String[] args) throws Exception {
         DateFormat df = new SimpleDateFormat("dd/MM/yyy");
 
-        Palestra pa = new Palestra();
-        pa.setId(5L);
-
-        List<Palestra> palestras = new ArrayList<>();
-        palestras.add(pa);
-
-        Evento e = new Evento();
-        e.setNome("TESTE 02");
-        e.setOrganizacao("EMPRESA B");
-        e.setInicio(df.parse("24/11/2022"));
-        e.setFim(df.parse("25/11/2022"));;
-        e.setPalestras(palestras);
-
+//        Palestra pa = new Palestra();
+//        pa.setId(5L);
+//
+//        List<Palestra> palestras = new ArrayList<>();
+//        palestras.add(pa);
+//        Evento e = new Evento();
+//        e.setNome("TESTE 02");
+//        e.setOrganizacao("EMPRESA B");
+//        e.setInicio(df.parse("24/11/2022"));
+//        e.setFim(df.parse("25/11/2022"));;
+//        e.setPalestras(palestras);
         EventoDAO dao = new EventoDAO();
-        e = dao.salvar(e);
-        System.out.println("Evento " + e.getNome()+ " Salva");
+//        e = dao.salvar(e);
+//        System.out.println("Evento " + e.getNome()+ " Salva");
 
 //        dao.remover(p.getId());
 //        Palestra p2 = dao.consultaPorId(2L);
@@ -38,6 +36,12 @@ public class EventoTeste {
 //        for (Palestrante palestrante : palestra.getPalestrantes()) {
 //            System.out.println("Palestrante " + palestrante.getNome());
 //        }
+//Consulta todos
+        List<Evento> eventos = dao.consultarTodos();
+        for (Evento e : eventos) {
+            System.out.println(e.getNome() + " " + df.format(e.getInicio()) + " " + df.format(e.getFim()));
+        }
+
     }
 
 }
