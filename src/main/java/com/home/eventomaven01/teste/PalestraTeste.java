@@ -15,25 +15,27 @@ public class PalestraTeste {
         DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
 
         Palestrante pa = new Palestrante();
-        pa.setNome("David Gabriel");
-        pa.setMiniBio("estudante");
+        pa.setNome("Joao Pedro");
+        pa.setMiniBio("medico");
 
         List<Palestrante> palestrantes = new ArrayList<>();
         palestrantes.add(pa);
 
         Local l = new Local();
-//        l.setPredio("Delta");
-//        l.setSala("D123");
+//        l.setPredio("Alpha");
+//        l.setSala("A23");
 //        l.setCapacidade(60);
         l.setId(12L);
 
         Palestra p = new Palestra();
-        p.setTitulo("OneToMany e ManyToOne com JPA");
+        p.setTitulo("Consultas personalizadas com JPA");
         p.setLocal(l);
         p.setDuracao(100);
-        p.setDataHora(df.parse("26/09/2023 21:00"));
+        p.setDataHora(df.parse("27/09/2023 09:00"));
+        
         p.setPalestrantes(palestrantes);
-        pa.setPalestra(p);
+        
+//        pa.setPalestra(p);
 //
         PalestraDAO dao = new PalestraDAO();
         p = dao.salvar(p);

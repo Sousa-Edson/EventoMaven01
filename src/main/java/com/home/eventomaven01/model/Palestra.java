@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -30,7 +31,10 @@ public class Palestra {
     @OneToOne   // tirando a operação em caacata
     private Local local;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "palestra")
+    @OneToMany //(mappedBy = "palestra")
+    @JoinTable(name = "Palestra_Palestrante",
+            joinColumns = @JoinColumn(name = "palestra_id"),
+            inverseJoinColumns = @JoinColumn(name = "palestrante_id"))
     private List<Palestrante> palestrantes;
 
     public Long getId() {
