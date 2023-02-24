@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -18,8 +19,9 @@ public class Palestrante {
     private String nome;
     @Column(name = "mini_bio")
     private String miniBio;
-    
+
     @ManyToOne
+    @JoinColumn(name = "palestra_id")
     private Palestra palestra;
 
     public Long getId() {
@@ -53,6 +55,5 @@ public class Palestrante {
     public void setPalestra(Palestra palestra) {
         this.palestra = palestra;
     }
-    
-    
+
 }
