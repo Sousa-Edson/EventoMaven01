@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 @SequenceGenerator(name = "palestra_seq", sequenceName = "palestra_seq", allocationSize = 1, initialValue = 1)
 @NamedQueries({
         @NamedQuery(name = "Palestra.consultaPorEvento",
-                query = "SELECT p FROM PAlestra p WHERE p.evento.id = :eventoId")
+                query = "SELECT p FROM Palestra p WHERE p.evento.id = :eventoId")
         
 })
 public class Palestra {
