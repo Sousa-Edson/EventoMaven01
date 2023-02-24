@@ -27,7 +27,7 @@ public class Palestra {
     @Column(name = "data_hora")
     private Date dataHora;
     private int duracao;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne   // tirando a operação em caacata
     private Local local;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "palestra")

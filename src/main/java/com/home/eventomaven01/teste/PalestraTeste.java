@@ -22,15 +22,16 @@ public class PalestraTeste {
         palestrantes.add(pa);
         
         Local l = new Local();
-        l.setPredio("Delta");
-        l.setSala("D123");
-        l.setCapacidade(60);
+//        l.setPredio("Delta");
+//        l.setSala("D123");
+//        l.setCapacidade(60);
+        l.setId(12L);
         
         Palestra p = new Palestra();
-        p.setTitulo("Relacionamento com JPA");
+        p.setTitulo("OneToMany e ManyToOne com JPA");
         p.setLocal(l);
         p.setDuracao(100);
-        p.setDataHora(df.parse("26/09/2023 19:00"));
+        p.setDataHora(df.parse("26/09/2023 21:00"));
         p.setPalestrantes(palestrantes);
         pa.setPalestra(p);
 //
