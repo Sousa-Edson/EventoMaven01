@@ -3,7 +3,7 @@ package com.home.eventomaven01.teste;
 import com.home.eventomaven01.dao.LocalDAO;
 import com.home.eventomaven01.model.Local;
 
-public class TesteLocal {
+public class LocalTeste {
 
     public static void main(String[] args) throws Exception {
         Local l = new Local();

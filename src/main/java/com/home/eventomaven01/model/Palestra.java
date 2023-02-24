@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -28,15 +29,19 @@ public class Palestra {
     @Column(name = "data_hora")
     private Date dataHora;
     private int duracao;
-    
+
     @OneToOne   // tirando a operação em caacata
-    private Local local; 
-    
+    private Local local;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "Palestra_Palestrante",
             joinColumns = @JoinColumn(name = "palestra_id"),
             inverseJoinColumns = @JoinColumn(name = "palestrante_id"))
     private List<Palestrante> palestrantes;
+
+    @ManyToOne
+    @JoinColumn(name = "evento_id")
+    private Evento evento;
 
     public Long getId() {
         return id;
@@ -85,6 +90,13 @@ public class Palestra {
     public void setPalestrantes(List<Palestrante> palestrantes) {
         this.palestrantes = palestrantes;
     }
-    
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
 
 }

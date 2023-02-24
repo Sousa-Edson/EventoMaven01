@@ -21,13 +21,12 @@ public class Evento {
     private Long id;
     private String nome;
     private String organizacao;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date inicio;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date fim;
-    
-    @OneToMany
-    @JoinColumn(name = "evento_id")
+
+    @OneToMany(mappedBy = "evento")
     private List<Palestra> palestras;
 
     public Long getId() {
@@ -77,6 +76,5 @@ public class Evento {
     public void setPalestras(List<Palestra> palestras) {
         this.palestras = palestras;
     }
-    
-    
+
 }
