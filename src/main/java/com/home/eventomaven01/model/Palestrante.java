@@ -21,7 +21,6 @@ public class Palestrante {
 //    @JoinColumn(name = "palestra_id")
 //    @ManyToOne
 //    private Palestra palestra;
-
     public Long getId() {
         return id;
     }
@@ -45,7 +44,5 @@ public class Palestrante {
     public void setMiniBio(String miniBio) {
         this.miniBio = miniBio;
     }
-
-     
 
 }

@@ -31,7 +31,7 @@ public class Palestra {
     @OneToOne   // tirando a operação em caacata
     private Local local;
 
-    @OneToMany //(mappedBy = "palestra")
+    @OneToMany  //(mappedBy = "palestra")
     @JoinTable(name = "Palestra_Palestrante",
             joinColumns = @JoinColumn(name = "palestra_id"),
             inverseJoinColumns = @JoinColumn(name = "palestrante_id"))
