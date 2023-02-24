@@ -5,6 +5,7 @@
     <class>com.home.eventomaven01.model.Local</class>
     <class>com.home.eventomaven01.model.Palestra</class>
     <class>com.home.eventomaven01.model.Palestrante</class>
+    <class>com.home.eventomaven01.model.Evento</class>
     <properties>
       <!--dados da conexao-->
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/eventos"/>
