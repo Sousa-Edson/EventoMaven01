@@ -1,10 +1,13 @@
 package com.home.eventomaven01.model;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,8 +21,11 @@ public class Palestra {
     private Long id;
     private String titulo;
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_hora")
     private Date dataHora;
     private int duracao;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Local local;
 
     public Long getId() {
         return id;
@@ -51,6 +57,14 @@ public class Palestra {
 
     public void setDuracao(int duracao) {
         this.duracao = duracao;
+    }
+
+    public Local getLocal() {
+        return local;
+    }
+
+    public void setLocal(Local local) {
+        this.local = local;
     }
 
 }
