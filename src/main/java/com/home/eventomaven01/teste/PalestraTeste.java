@@ -10,34 +10,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PalestraTeste {
-    
+
     public static void main(String[] args) throws Exception {
         DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
-        
+
         Palestrante pa = new Palestrante();
-//        pa.setNome("Joao Pedro");
-//        pa.setMiniBio("medico");
-        pa.setId(5L);
+        pa.setId(6L);
         
+        Palestrante pa2 = new Palestrante();
+        pa2.setId(7L);
+
         List<Palestrante> palestrantes = new ArrayList<>();
         palestrantes.add(pa);
-        
-        Local l = new Local();
-//        l.setPredio("Alpha");
-//        l.setSala("A23");
-//        l.setCapacidade(60);
-        l.setId(12L);
-        
-        Palestra p = new Palestra();
-        p.setTitulo("Consultas personalizadas com JPA");
-        p.setLocal(l);
-        p.setDuracao(100);
-        p.setDataHora(df.parse("27/09/2023 09:00"));
-        
-        p.setPalestrantes(palestrantes);
+         palestrantes.add(pa2);
 
-//        pa.setPalestra(p);
-//
+        Local l = new Local(); 
+        l.setId(12L);
+
+        Palestra p = new Palestra();
+        p.setTitulo("Java com aveia");
+        p.setLocal(l);
+        p.setDuracao(60);
+        p.setDataHora(df.parse("30/09/2023 19:00"));
+
+        p.setPalestrantes(palestrantes);
+ 
         PalestraDAO dao = new PalestraDAO();
         p = dao.salvar(p);
         System.out.println("Palestra " + p.getTitulo() + " Salva");
@@ -46,5 +43,5 @@ public class PalestraTeste {
 //        Palestra p2 = dao.consultaPorId(2L);
 //        System.out.println("Palestra " + p2.getTitulo() + " " + p2.getLocal().getPredio() + " " + p2.getLocal().getSala());
     }
-    
+
 }

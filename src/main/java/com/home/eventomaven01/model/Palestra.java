@@ -2,7 +2,6 @@ package com.home.eventomaven01.model;
 
 import java.util.Date;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -28,10 +27,11 @@ public class Palestra {
     @Column(name = "data_hora")
     private Date dataHora;
     private int duracao;
+    
     @OneToOne   // tirando a operação em caacata
-    private Local local;
-
-    @OneToMany  //(mappedBy = "palestra")
+    private Local local; 
+    
+    @ManyToMany
     @JoinTable(name = "Palestra_Palestrante",
             joinColumns = @JoinColumn(name = "palestra_id"),
             inverseJoinColumns = @JoinColumn(name = "palestrante_id"))
@@ -84,5 +84,6 @@ public class Palestra {
     public void setPalestrantes(List<Palestrante> palestrantes) {
         this.palestrantes = palestrantes;
     }
+    
 
 }

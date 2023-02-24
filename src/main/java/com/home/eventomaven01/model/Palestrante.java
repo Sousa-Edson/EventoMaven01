@@ -1,10 +1,12 @@
 package com.home.eventomaven01.model;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -18,9 +20,9 @@ public class Palestrante {
     @Column(name = "mini_bio")
     private String miniBio;
 
-//    @JoinColumn(name = "palestra_id")
-//    @ManyToOne
-//    private Palestra palestra;
+    @ManyToMany(mappedBy = "palestrantes")
+    private List<Palestra> palestras;
+ 
     public Long getId() {
         return id;
     }
@@ -43,6 +45,14 @@ public class Palestrante {
 
     public void setMiniBio(String miniBio) {
         this.miniBio = miniBio;
+    }
+
+    public List<Palestra> getPalestras() {
+        return palestras;
+    }
+
+    public void setPalestras(List<Palestra> palestras) {
+        this.palestras = palestras;
     }
 
 }
