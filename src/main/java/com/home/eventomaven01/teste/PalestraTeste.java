@@ -17,18 +17,18 @@ public class PalestraTeste {
         Palestrante pa = new Palestrante();
         pa.setId(5L);
 //        
-//        Palestrante pa2 = new Palestrante();
-//        pa2.setId(7L);
+        Palestrante pa2 = new Palestrante();
+        pa2.setId(7L);
 
         List<Palestrante> palestrantes = new ArrayList<>();
         palestrantes.add(pa);
-//         palestrantes.add(pa2);
+         palestrantes.add(pa2);
 
         Local l = new Local();
         l.setId(12L);
 
         Palestra p = new Palestra();
-        p.setTitulo("Festa na piscina");
+        p.setTitulo("Festa na piscina 3");
         p.setLocal(l);
         p.setDuracao(6);
         p.setDataHora(df.parse("03/10/2023 21:00"));
