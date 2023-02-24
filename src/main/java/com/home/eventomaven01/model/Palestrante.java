@@ -21,7 +21,7 @@ public class Palestrante {
     @Column(name = "mini_bio")
     private String miniBio;
 
-    @ManyToMany(mappedBy = "palestrantes")
+    @ManyToMany(mappedBy = "palestrantes",fetch = FetchType.EAGER)
     private List<Palestra> palestras;
  
     public Long getId() {
