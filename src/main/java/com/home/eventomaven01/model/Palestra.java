@@ -1,12 +1,15 @@
 package com.home.eventomaven01.model;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -26,6 +29,10 @@ public class Palestra {
     private int duracao;
     @OneToOne(cascade = CascadeType.ALL)
     private Local local;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "palestra")
+    @JoinColumn(name = "palestra_id")
+    private List<Palestrante> palestrantes;
 
     public Long getId() {
         return id;
@@ -65,6 +72,14 @@ public class Palestra {
 
     public void setLocal(Local local) {
         this.local = local;
+    }
+
+    public List<Palestrante> getPalestrantes() {
+        return palestrantes;
+    }
+
+    public void setPalestrantes(List<Palestrante> palestrantes) {
+        this.palestrantes = palestrantes;
     }
 
 }

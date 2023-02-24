@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PalestraTeste {
-
+    
     public static void main(String[] args) throws Exception {
         DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
         
@@ -21,19 +21,18 @@ public class PalestraTeste {
         List<Palestrante> palestrantes = new ArrayList<>();
         palestrantes.add(pa);
         
-        
         Local l = new Local();
         l.setPredio("Delta");
         l.setSala("D123");
         l.setCapacidade(60);
-
+        
         Palestra p = new Palestra();
         p.setTitulo("Relacionamento com JPA");
         p.setLocal(l);
         p.setDuracao(100);
         p.setDataHora(df.parse("26/09/2023 19:00"));
-        
-        p.setPalestrante(palestrantes);
+        p.setPalestrantes(palestrantes);
+        pa.setPalestra(p);
 //
         PalestraDAO dao = new PalestraDAO();
         p = dao.salvar(p);
@@ -42,7 +41,6 @@ public class PalestraTeste {
 //        dao.remover(p.getId());
 //        Palestra p2 = dao.consultaPorId(2L);
 //        System.out.println("Palestra " + p2.getTitulo() + " " + p2.getLocal().getPredio() + " " + p2.getLocal().getSala());
-
     }
-
+    
 }
