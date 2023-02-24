@@ -10,23 +10,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PalestraTeste {
-    
+
     public static void main(String[] args) throws Exception {
         DateFormat df = new SimpleDateFormat("dd/MM/yyy HH:mm");
-        
+
         Palestrante pa = new Palestrante();
         pa.setNome("David Gabriel");
         pa.setMiniBio("estudante");
-        
+
         List<Palestrante> palestrantes = new ArrayList<>();
         palestrantes.add(pa);
-        
+
         Local l = new Local();
 //        l.setPredio("Delta");
 //        l.setSala("D123");
 //        l.setCapacidade(60);
         l.setId(12L);
-        
+
         Palestra p = new Palestra();
         p.setTitulo("OneToMany e ManyToOne com JPA");
         p.setLocal(l);
@@ -43,5 +43,5 @@ public class PalestraTeste {
 //        Palestra p2 = dao.consultaPorId(2L);
 //        System.out.println("Palestra " + p2.getTitulo() + " " + p2.getLocal().getPredio() + " " + p2.getLocal().getSala());
     }
-    
+
 }

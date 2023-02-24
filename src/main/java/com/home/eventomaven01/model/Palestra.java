@@ -31,7 +31,7 @@ public class Palestra {
     private Local local;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "palestra")
-          private List<Palestrante> palestrantes;
+    private List<Palestrante> palestrantes;
 
     public Long getId() {
         return id;
