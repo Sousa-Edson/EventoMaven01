@@ -1,8 +1,6 @@
 package com.home.eventomaven01.dao;
 
 import com.home.eventomaven01.model.EntidadeBase;
-import com.home.eventomaven01.model.Evento;
-import com.home.eventomaven01.model.Local;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
