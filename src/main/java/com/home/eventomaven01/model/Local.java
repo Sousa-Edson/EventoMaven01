@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 
 @Entity
 @SequenceGenerator(name = "local_seq" ,sequenceName = "local_seq",allocationSize = 1 , initialValue = 1)
-public class Local {
+public class Local implements EntidadeBase{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "local_seq" )
     private Long id;
@@ -17,6 +17,7 @@ public class Local {
     private String sala;
     private int capacidade;
 
+    @Override
     public Long getId() {
         return id;
     }

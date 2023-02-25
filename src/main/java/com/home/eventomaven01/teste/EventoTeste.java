@@ -12,17 +12,17 @@ public class EventoTeste {
 
     public static void main(String[] args) throws Exception {
         DateFormat df = new SimpleDateFormat("dd/MM/yyy");
-
+//
 //        Palestra pa = new Palestra();
 //        pa.setId(5L);
 //
 //        List<Palestra> palestras = new ArrayList<>();
 //        palestras.add(pa);
 //        Evento e = new Evento();
-//        e.setNome("TESTE 02");
-//        e.setOrganizacao("EMPRESA B");
-//        e.setInicio(df.parse("24/11/2022"));
-//        e.setFim(df.parse("25/11/2022"));;
+//        e.setNome("TESTE 0q");
+//        e.setOrganizacao("EMPRESA A");
+//        e.setInicio(df.parse("11/03/2023"));
+//        e.setFim(df.parse("12/03/2023"));;
 //        e.setPalestras(palestras);
         EventoDAO dao = new EventoDAO();
 //        e = dao.salvar(e);
