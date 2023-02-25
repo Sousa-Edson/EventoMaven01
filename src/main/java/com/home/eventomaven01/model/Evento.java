@@ -38,7 +38,7 @@ public class Evento implements EntidadeBase {
     @OneToMany(mappedBy = "evento")
     private List<Palestra> palestras;
 
-  
+    @Override
     public Long getId() {
         return id;
     }
