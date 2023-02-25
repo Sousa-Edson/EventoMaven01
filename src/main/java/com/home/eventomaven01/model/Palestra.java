@@ -26,7 +26,7 @@ import javax.persistence.TemporalType;
                 query = "SELECT p FROM Palestra p WHERE p.evento.id = :eventoId")
         
 })
-public class Palestra {
+public class Palestra implements EntidadeBase{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "palestra_seq")
@@ -50,6 +50,7 @@ public class Palestra {
     @JoinColumn(name = "evento_id")
     private Evento evento;
 
+    @Override
     public Long getId() {
         return id;
     }
