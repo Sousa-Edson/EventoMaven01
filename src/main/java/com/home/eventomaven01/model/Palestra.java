@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -22,11 +23,11 @@ import javax.persistence.TemporalType;
 @Entity
 @SequenceGenerator(name = "palestra_seq", sequenceName = "palestra_seq", allocationSize = 1, initialValue = 1)
 @NamedQueries({
-        @NamedQuery(name = "Palestra.consultaPorEvento",
-                query = "SELECT p FROM Palestra p WHERE p.evento.id = :eventoId")
-        
+    @NamedQuery(name = "Palestra.consultaPorEvento",
+            query = "SELECT p FROM Palestra p WHERE p.evento.id = :eventoId")
+
 })
-public class Palestra implements EntidadeBase{
+public class Palestra implements EntidadeBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "palestra_seq")
@@ -49,6 +50,9 @@ public class Palestra implements EntidadeBase{
     @ManyToOne
     @JoinColumn(name = "evento_id")
     private Evento evento;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Filipeta> filipetas;
 
     @Override
     public Long getId() {
