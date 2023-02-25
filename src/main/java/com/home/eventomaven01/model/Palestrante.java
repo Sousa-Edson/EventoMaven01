@@ -22,7 +22,7 @@ import javax.persistence.SequenceGenerator;
             + " ORDER BY pa.nome asc")
 
 })
-public class Palestrante {
+public class Palestrante implements EntidadeBase{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "palestrantre_seq")
@@ -34,6 +34,7 @@ public class Palestrante {
     @ManyToMany(mappedBy = "palestrantes", fetch = FetchType.EAGER)
     private List<Palestra> palestras;
 
+    @Override
     public Long getId() {
         return id;
     }
