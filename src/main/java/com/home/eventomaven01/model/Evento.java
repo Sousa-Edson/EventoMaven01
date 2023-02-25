@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
                 query = "SELECT e FROM Evento e WHERE e.fim >= CURRENT_DATE")
 })
 
-public class Evento {
+public class Evento implements EntidadeBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "evento_seq")
@@ -38,6 +38,7 @@ public class Evento {
     @OneToMany(mappedBy = "evento")
     private List<Palestra> palestras;
 
+  
     public Long getId() {
         return id;
     }
